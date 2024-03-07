@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=global_bilgi_example
+      - POSTGRES_USER=fatih
+      - POSTGRES_PASSWORD=fatih
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    networks:
+      - postgres_network
+
+networks:
+  postgres_network:
+    driver: bridge

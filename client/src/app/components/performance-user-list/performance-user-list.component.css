@@ -1,0 +1,26 @@
+.transparent-btn {
+    background-color: rgb(255, 255, 255);
+    border-color: transparent;
+    color: inherit;
+    text-decoration: underline;
+    margin-right: 0px;
+}
+
+.bg-color {
+    background-color: #e6e6e6;
+    color: #000;
+    border: none;
+    width: 140px;
+    margin-left: 20px;
+}
+
+.delete-button {
+    background-color: #ffffff;
+    border: none;
+    color: #af1a1a;
+    text-decoration: underline;
+}
+
+.table th {
+    color:#0d4ba0;
+  }

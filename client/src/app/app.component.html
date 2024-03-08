@@ -1,0 +1,12 @@
+<ng-container *ngIf="authService.isLoggedIn(); else loginLayout">
+    <app-header></app-header>
+    <main class="d-flex flex-nowrap">
+        <app-sidebar></app-sidebar>
+        <router-outlet></router-outlet>
+    </main>
+    <app-footer></app-footer>
+  </ng-container>
+  
+  <ng-template #loginLayout>
+    <app-login-layout></app-login-layout>
+  </ng-template>

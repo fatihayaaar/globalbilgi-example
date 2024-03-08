@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="logo-container">
+                    <img src="assets/Turkcell_Global_Bilgi.png" alt="Turkcell Global Bilgi Logo" class="logo"
+                        width="267" height="60">
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="username" placeholder="Kullanıcı adı"
+                            [(ngModel)]="username">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" placeholder="Şifre"
+                            [(ngModel)]="password">
+                    </div>
+                    <br>
+                    <br>
+                    <button type="submit" class="btn btn-primary" (click)="login(this.username, this.password)">Giriş
+                        Yap</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

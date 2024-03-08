@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg custom-shadow p-3 mb-0 bg-color">
+    <div class="container">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-auto link-body-emphasis text-decoration-none left">
+            <img src="assets/Turkcell_Global_Bilgi.png" alt="Turkcell Global Bilgi Logo" width="178" height="40">
+        </a>
+        <div class="right">
+            <ul class="navbar-nav navbar-bar-style">
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a href="#"
+                            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png" alt="" width="40"
+                                height="40" class="rounded-circle me-2">
+                            <strong>{{ sub }}</strong>
+                        </a>
+                        <ul class="dropdown-menu text-small shadow">
+                            
+                            <li>
+                                <a class="dropdown-item" href="#" (click)="logout()">Çıkış Yap</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

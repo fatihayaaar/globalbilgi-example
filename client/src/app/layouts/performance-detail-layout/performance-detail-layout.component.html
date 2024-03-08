@@ -1,0 +1,60 @@
+<div class="container mt-4 blko" style="width: 700px;">
+  <h2>@if (!isEditMode) { Performans Girişi } @else { Performansı Düzenle }</h2>
+  <br>
+  <form class="form-inline">
+    <div class="form-group ml-4">
+      <label for="date" class="mr-2">Tarih</label>
+      <input type="date" class="form-control" id="date" name="date" placeholder="Tarih Seç" required
+        [(ngModel)]="dateInfo">
+    </div>
+    <br>
+    <div class="form-group ml-4">
+      <div style="display: flex; flex-direction: row;">
+        <div style="margin-right: 10px; width: 700px;">
+          <label for="beginTime" class="mr-2">Başlangıç</label>
+          <input type="time" class="form-control" style="width: 100%;" id="beginTime" name="beginTime"
+            placeholder="Saat seç" required [(ngModel)]="beginTime">
+        </div>
+        <div style="width: 700px;">
+          <label for="endTime" class="mr-2">Bitiş</label>
+          <input type="time" class="form-control" style="width: 100%;" id="endTime" name="endTime"
+            placeholder="Saat seç" required [(ngModel)]="endTime">
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group ml-4">
+      <label for="quantity" class="mr-2">Mola</label>
+      <input type="number" class="form-control" id="quantity2" name="quantity2" placeholder="Miktar gir" required
+        [(ngModel)]="breakTime">
+    </div>
+    <br>
+    <div class="form-group ml-4">
+      <div style="display: flex; flex-direction: row;">
+        <div style="margin-right: 10px; width: 700px;">
+          <label for="dropdown" class="mr-2">Mazeret</label>
+          <select class="form-control" id="dropdown" name="dropdown" [(ngModel)]="excuse">
+            <option value="">Mazeret Seç</option>
+            <option value="YILLIK_IZIN">Yıllık Izin</option>
+            <option value="RAPORLU">Hasta</option>
+            <option value="ASKERLIK">Askerlik</option>
+          </select>
+        </div>
+        <div style="width: 700px;">
+          <label for="quantity" class="mr-2">Mazeret Süresi</label>
+          <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Miktar gir" required
+            [(ngModel)]="excuseHours">
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <button type="submit" (click)="validateForm()" class="btn btn-primary ml-4"
+      style="width: 200px; background-color: #0d4ba0; border: #0d4ba0;">Kaydet</button>
+  </form>
+  <br>
+  <br>
+</div>
+<div class="alert alert-danger mt-3 alert-box" role="alert" *ngIf="showErrorMessage">
+  Hatalı giriş yapıldı, lütfen verileri doğru giriniz.
+</div>

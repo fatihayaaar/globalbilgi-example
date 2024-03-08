@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <div class="">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="date" id="startDate" class="form-control" placeholder="Başlangıç Tarihi"
+                    [(ngModel)]="startDate">
+            </div>
+            <div class="col-md-3">
+                <input type="date" id="endDate" class="form-control" [(ngModel)]="endDate">
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <input type="text" id="username" class="form-control" placeholder="Temsilci adı"
+                        [(ngModel)]="username" (input)="onTextChange()" (blur)="hideSuggestions()">
+                </div>
+                <div class="suggestion-list" *ngIf="showSuggestions && suggestions.length > 0">
+                    <div class="suggestion" *ngFor="let suggestion of suggestions.slice(0, 5)"
+                        (click)="selectSuggestion(suggestion)">
+                        {{ suggestion.firstname }} {{ suggestion.surname }}
+                    </div>
+                </div>
+            </div>
+            <div class="col md-3">
+                <button id="filterBtn" class="btn btn-primary bg-color" (click)="filterClick()">Filtrele</button>
+            </div>
+            <div class="col md-3">
+                <button id="excelBtn" class="btn btn-primary bg-color" (click)="downloadAsExcel()">İndir</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <table class="table" style="width: 970px;">
+        <thead>
+            <tr>
+                <th>Ad Soyad</th>
+                <th>Sicil</th>
+                <th>Tarih</th>
+                <th>Başlangıç</th>
+                <th>Bitiş</th>
+                <th>Mola</th>
+                <th>Mazeret</th>
+                <th>Mazeret Saati</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of performanceListData">
+                <td>{{ item.fullname }}</td>
+                <td>{{ item.agent }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.startDate}}</td>
+                <td>{{ item.endDate }}</td>
+                <td>{{ item.breakTime }}</td>
+                <td>{{ item.excuse }}</td>
+                <td>{{ item.excuseHours }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

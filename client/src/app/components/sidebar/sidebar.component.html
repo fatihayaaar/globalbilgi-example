@@ -1,0 +1,22 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-color" style="width: 240px;">
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a routerLink="/home-page" routerLinkActive="active" class="link-body-emphasis nav-link"
+                aria-current="page">
+                Anasayfa
+            </a>
+        </li>
+        <li>
+            <a routerLink="/performance-detail-layout" routerLinkActive="active" class="link-body-emphasis nav-link ">
+                Performans Girişi
+            </a>
+        </li>
+        @if(this.getIsAdmin()) {
+        <li>
+            <a routerLink="/performance-layout" routerLinkActive="active" class="nav-link link-body-emphasis">
+                Performans Raporu
+            </a>
+        </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,26 @@
+.custom-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.bg-color {
+    background-color: #ffffff;
+}
+
+.bg-color2 {
+    background-color: #0d4ba0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -5px 0 -5px;
+}
+
+.navbar-bar-style {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav-item {
+    margin-left: 15px; /* Aralık için istediğiniz değeri ayarlayabilirsiniz */
+}

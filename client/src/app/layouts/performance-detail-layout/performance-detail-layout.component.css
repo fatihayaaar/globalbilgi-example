@@ -1,0 +1,17 @@
+.blko label {
+    padding-left: 10px;
+    padding-bottom: 5px;
+    color: #313131;
+}
+.blko input {
+    padding-left: 10px;
+    color: #4d4d4d;
+}
+
+.alert-box {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    border: none;
+    width: 500px;
+}

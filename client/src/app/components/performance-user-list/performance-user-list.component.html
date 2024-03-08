@@ -1,0 +1,52 @@
+<app-confirm-dialog *ngIf="isDeleteConfirmationVisible" [message]="'Silmek istediğinize emin misiniz?'"
+    (confirmed)="onConfirmation($event)">
+</app-confirm-dialog>
+<div class="container mt-4">
+    <div class="">
+        <div class="row">
+            <div class="col-md-3">
+                <input type="date" id="startDate" class="form-control" placeholder="Başlangıç Tarihi"
+                    [(ngModel)]="startDate">
+            </div>
+            <div class="col-md-3">
+                <input type="date" id="endDate" class="form-control" [(ngModel)]="endDate">
+            </div>
+            <div class="col md-3">
+                <div class="row-md-3">
+                    <button id="filterBtn" class="btn btn-primary bg-color" (click)="filterClick()">Filtrele</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+<table class="table" style="width: 970px;">
+    <thead>
+        <tr>
+            <th>Tarih</th>
+            <th>Başlangıç</th>
+            <th>Bitiş</th>
+            <th>Mola</th>
+            <th>Mazeret</th>
+            <th>Mazeret Saati</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of performanceData">
+            <td>{{ item.dateInfo }}</td>
+            <td>{{ item.beginTime }}</td>
+            <td>{{ item.endTime }}</td>
+            <td>{{ item.breakTime }}</td>
+            <td>{{ item.excuse }}</td>
+            <td>{{ item.excuseHours }}</td>
+            <td class="action-buttons">
+                <button class="btn btn-success edit-button transparent-btn" (click)="editItem(item)">
+                    Düzenle
+                </button>
+                <button class="btn btn-danger delete-button" (click)="deleteItem(item)">
+                    Sil
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

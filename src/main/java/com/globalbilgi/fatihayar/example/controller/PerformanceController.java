@@ -17,15 +17,15 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/performance")
+@RequiredArgsConstructor
 public class PerformanceController {
 
     private final PerformanceService service;
     private final UserService userService;
 
-    @PreAuthorize("hasRole('ROLE_[USER]') or hasRole('ROLE_[ADMIN]')")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Boolean> add(Authentication authentication, @RequestBody PerformanceDto performanceDto) {
         UserDto user = userService.getUserByMail(authentication.getName());
@@ -34,14 +34,14 @@ public class PerformanceController {
         return ResponseEntity.ok(true);
     }
 
-    @PreAuthorize("hasRole('ROLE_[ADMIN]') or hasRole('ROLE_[USER]')")
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         service.delete(id);
         return ResponseEntity.ok(true);
     }
 
-    @PreAuthorize("hasRole('ROLE_[USER]') or hasRole('ROLE_[ADMIN]')")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @PutMapping("/update")
     public ResponseEntity<Boolean> update(Authentication authentication, @RequestBody PerformanceDto performanceDto) {
         UserDto user = userService.getUserByMail(authentication.getName());
@@ -53,19 +53,19 @@ public class PerformanceController {
         return ResponseEntity.ok(true);
     }
 
-    @PreAuthorize("hasRole('ROLE_[ADMIN]')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/all")
     public ResponseEntity<List<ListPerformanceItemDto>> getAll() {
         return ResponseEntity.ok(service.getAllPerformances());
     }
 
-    @PreAuthorize("hasRole('ROLE_[ADMIN]')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/get/{mail}")
     public ResponseEntity<List<PerformanceDto>> getPerformancesByUser(@PathVariable String mail) {
         return ResponseEntity.ok(service.getPerformancesByUser(UserDto.builder().mail(mail).build()));
     }
 
-    @PreAuthorize("hasRole('ROLE_[ADMIN]')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/get/filter")
     public ResponseEntity<List<PerformanceDto>> findPerformanceByBetweenDatesAndUser(@RequestBody FilterPerformanceDto filterPerformanceDto) {
         if (filterPerformanceDto.getUser() == null) {
@@ -73,13 +73,13 @@ public class PerformanceController {
         } return ResponseEntity.ok(service.findPerformanceByBetweenDatesAndUser(filterPerformanceDto.getStartDate(), filterPerformanceDto.getEndDate(), filterPerformanceDto.getUser()));
     }
 
-    @PreAuthorize("hasRole('ROLE_[ADMIN]') or hasRole('ROLE_[USER]')")
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
     @PostMapping("/get/my-filter")
     public ResponseEntity<List<PerformanceDto>> findPerformanceByBetweenDates(@RequestBody FilterPerformanceDto filterPerformanceDto) {
         return ResponseEntity.ok(service.findPerformanceByBetweenDates(filterPerformanceDto.getStartDate(), filterPerformanceDto.getEndDate()));
     }
 
-    @PreAuthorize("hasRole('ROLE_[USER]') or hasRole('ROLE_[ADMIN]')")
+    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     @GetMapping("/get/my")
     public ResponseEntity<List<PerformanceDto>> getMyPerformances(Authentication authentication) {
         UserDto user = userService.getUserByMail(authentication.getName());

@@ -27,19 +27,20 @@ public class JwtUtil implements Serializable {
     private Long accessTokenExpirationMs;
 
     public String generateToken(UserDetails userDetails) {
-        String[] roles = userDetails.getAuthorities().stream()
+        String role = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.toList()).toArray(new String[0]);
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("User has no roles"));
 
-        return doGenerateToken(roles, userDetails.getUsername(), accessTokenExpirationMs);
+        return doGenerateToken(role, userDetails.getUsername(), accessTokenExpirationMs);
     }
 
-    private String doGenerateToken(String[] claims, String subject, Long expirationMs) {
+    private String doGenerateToken(String claim, String subject, Long expirationMs) {
         try {
             return JWT.create()
                     .withSubject(subject)
                     .withExpiresAt(new Date(System.currentTimeMillis() + expirationMs))
-                    .withArrayClaim("roles", claims)
+                    .withClaim("role", claim)
                     .sign(HMAC512(SECRET_KEY));
         } catch (Exception e) {
             throw new RuntimeException(e);

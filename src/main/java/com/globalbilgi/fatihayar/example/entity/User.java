@@ -25,7 +25,7 @@ public class User extends BaseEntity {
     private String mail;
     private String password;
     private String photo;
-    private List<UserRole> roles;
+    private UserRole role;
 
     @OneToMany(mappedBy = "user")
     private List<Performance> performances;

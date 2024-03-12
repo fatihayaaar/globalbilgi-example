@@ -21,14 +21,14 @@ export class TokenService {
     const parts = tokenWithoutPrefix.split('.');
     const decodedPayload = atob(parts[1]);
     const payload = JSON.parse(decodedPayload);
-    const roles = payload.roles;
+    const role = payload.role;
     const sub = payload.sub;
     this.setUserMail(sub);
-    this.setIsAdmin(roles);
+    this.setIsAdmin(role);
   }
 
-  setIsAdmin(roles: string) {
-    if (roles.includes('ROLE_[ADMIN]')) {
+  setIsAdmin(role: string) {
+    if (role.includes('ROLE_ADMIN')) {
       localStorage.setItem('isAdmin', "true");
     } else {
       localStorage.setItem('isAdmin', "false");

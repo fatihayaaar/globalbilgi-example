@@ -19,6 +19,7 @@ import { PerformanceUserListComponent } from './components/performance-user-list
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CorsInterceptor } from './cors.interceptor';
 import { AuthInterceptor } from './auth.interceptor';
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -35,13 +36,14 @@ import { AuthInterceptor } from './auth.interceptor';
     HomePageComponent,
     PerformanceUserListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    NgbModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        NgbModule,
+        NgOptimizedImage,
+    ],
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),

@@ -2,6 +2,7 @@ package com.globalbilgi.fatihayar.example.securtiy;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,23 +52,16 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
         String token = request.getHeader(HEADER_STRING);
         if (token != null) {
-            String user;
             try {
-                user = JWT.require(Algorithm.HMAC512(SECRET_KEY))
+                DecodedJWT jwt = JWT.require(Algorithm.HMAC512(SECRET_KEY))
                         .build()
-                        .verify(token.replace(TOKEN_PREFIX, ""))
-                        .getSubject();
+                        .verify(token.replace(TOKEN_PREFIX, ""));
 
-                List<GrantedAuthority> authorities = JWT.require(Algorithm.HMAC512(SECRET_KEY))
-                        .build()
-                        .verify(token.replace(TOKEN_PREFIX, ""))
-                        .getClaim("roles")
-                        .asList(String.class)
-                        .stream()
-                        .map(SimpleGrantedAuthority::new)
-                        .collect(Collectors.toList());
+                String user = jwt.getSubject();
+                String role = jwt.getClaim("role").asString();
 
-                if (user != null) {
+                if (user != null && role != null) {
+                    List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(role));
                     return new UsernamePasswordAuthenticationToken(user, null, authorities);
                 }
             } catch (Exception e) {

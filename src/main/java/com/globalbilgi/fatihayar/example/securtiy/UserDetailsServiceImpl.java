@@ -20,6 +20,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (applicationUser == null) {
             throw new UsernameNotFoundException(username);
         }
-        return org.springframework.security.core.userdetails.User.builder().username(applicationUser.getMail()).password(applicationUser.getPassword()).roles(applicationUser.getRoles().toString()).build();
+        return org.springframework.security.core.userdetails.User.builder().username(applicationUser.getMail()).password(applicationUser.getPassword()).roles(applicationUser.getRole().toString()).build();
     }
 }

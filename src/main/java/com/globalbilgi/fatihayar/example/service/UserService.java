@@ -22,10 +22,7 @@ public class UserService implements IUserService<UserDto> {
 
     @Override
     public void add(UserDto user) {
-        List<UserRole> roles = new ArrayList<>();
-        roles.add(UserRole.USER);
-        user.setRoles(roles);
-
+        user.setRole(UserRole.USER);
         repository.saveAndFlush(modelMapper.map(user, User.class));
     }
 

@@ -1,4 +1,6 @@
 package com.globalbilgi.fatihayar.example.dto;
 
-public class BaseDto {
+import java.io.Serializable;
+
+public class BaseDto implements Serializable {
 }

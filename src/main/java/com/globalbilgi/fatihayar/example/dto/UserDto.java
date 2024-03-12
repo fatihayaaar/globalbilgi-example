@@ -20,5 +20,5 @@ public class UserDto extends BaseDto {
     private String password;
     private String agent;
     private String photo;
-    private List<UserRole> roles;
+    private UserRole role;
 }

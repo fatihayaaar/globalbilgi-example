@@ -51,6 +51,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.POST, AuthConstant.LOGIN_URL).permitAll()
                         .requestMatchers(HttpMethod.POST, AuthConstant.SIGN_UP_URL).permitAll()
+                        .requestMatchers(HttpMethod.GET, AuthConstant.ACTUATOR_URL).permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilter(new JWTAuthenticationFilter(authenticationManager, jwtUtil, userService))

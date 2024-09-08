@@ -14,6 +14,11 @@ services:
       - ./data:/var/lib/postgresql/data
     networks:
       - postgres_network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "fatih"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
 
   globalbilgi-example-server:
     container_name: globalbilgi-example-server
@@ -28,10 +33,15 @@ services:
       - "8080:8080"
     depends_on:
       postgres:
-        condition: service_started
+        condition: service_healthy
     networks:
       - postgres_network
       - globalbilgi-example-client
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 10s
+      timeout: 10s
+      retries: 5
 
   globalbilgi-example-client:
     container_name: globalbilgi-example-client
@@ -42,7 +52,7 @@ services:
       - "4200:80"
     depends_on:
       globalbilgi-example-server:
-        condition: service_started
+        condition: service_healthy
     networks:
       - globalbilgi-example-client
 

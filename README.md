@@ -33,4 +33,3 @@ Navigate to `http://localhost:4200/` to access the web UI.
 ### [Admin] Performance Report Page
 
 <img width="1440" alt="Ekran Resmi 2024-09-09 02 11 07" src="https://github.com/user-attachments/assets/50eed004-57d1-4cc2-a8e8-e4c3d7577540">
-

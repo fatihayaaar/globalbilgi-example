@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   postgres:
@@ -15,6 +15,39 @@ services:
     networks:
       - postgres_network
 
+  globalbilgi-example-server:
+    container_name: globalbilgi-example-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/global_bilgi_example
+      DATASOURCE_USERNAME: fatih
+      DATASOURCE_PASSWORD: fatih
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_started
+    networks:
+      - postgres_network
+      - globalbilgi-example-client
+
+  globalbilgi-example-client:
+    container_name: globalbilgi-example-client
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "4200:80"
+    depends_on:
+      globalbilgi-example-server:
+        condition: service_started
+    networks:
+      - globalbilgi-example-client
+
 networks:
   postgres_network:
+    driver: bridge
+  globalbilgi-example-client:
     driver: bridge

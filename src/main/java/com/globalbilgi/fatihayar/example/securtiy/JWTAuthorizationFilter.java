@@ -14,22 +14,16 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-import java.io.Console;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.globalbilgi.fatihayar.example.securtiy.constants.AuthConstant.*;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
-    private final JwtUtil jwtUtil;
-
-    public JWTAuthorizationFilter(AuthenticationManager authManager, JwtUtil jwtUtil) {
+    public JWTAuthorizationFilter(AuthenticationManager authManager) {
         super(authManager);
-        this.jwtUtil = jwtUtil;
     }
 
     @Override

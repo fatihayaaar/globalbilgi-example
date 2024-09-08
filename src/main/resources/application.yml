@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/global_bilgi_example
-    username: fatih
-    password: fatih
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/global_bilgi_example}
+    username: ${DATASOURCE_USERNAME:fatih}
+    password: ${DATASOURCE_PASSWORD:fatih}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect

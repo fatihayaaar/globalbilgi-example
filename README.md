@@ -20,7 +20,7 @@ Navigate to `http://localhost:4200/` to access the web UI.
 
 ### Login Page
 
-![Uploading Ekran Resmi 2024-09-08 17.50.12.png…]()
+<img width="1437" alt="Ekran Resmi 2024-09-08 17 50 12" src="https://github.com/user-attachments/assets/73be9c2e-d461-45f6-9de5-d930a3ca3b41">
 
 ### Add Performance Page
 

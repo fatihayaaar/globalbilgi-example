@@ -24,12 +24,13 @@ Navigate to `http://localhost:4200/` to access the web UI.
 
 ### Add Performance Page
 
-<img width="1440" alt="Ekran Resmi 2024-05-13 14 06 50" src="https://github.com/fatihayaaar/globalbilgi-example/assets/18555532/8d1b415b-29ee-4b29-98ca-f11da7684d49">
+<img width="1439" alt="Ekran Resmi 2024-09-09 02 02 13" src="https://github.com/user-attachments/assets/1ce6bd26-c2d2-4ad6-8791-8e8a145848ac">
 
 ### List Performance Page
 
-<img width="1434" alt="Ekran Resmi 2024-05-13 14 06 29" src="https://github.com/fatihayaaar/globalbilgi-example/assets/18555532/69219923-6eeb-4a8a-a994-49020c73eb70">
+<img width="1438" alt="Ekran Resmi 2024-09-09 02 01 55" src="https://github.com/user-attachments/assets/3ad5cd27-7045-4e98-9e7c-2591f8b71d5c">
 
 ### [Admin] Performance Report Page
 
-<img width="1419" alt="Ekran Resmi 2024-05-13 14 05 23" src="https://github.com/fatihayaaar/globalbilgi-example/assets/18555532/a408d382-cc90-444e-8716-1e0bf9f7299e">
+<img width="1440" alt="Ekran Resmi 2024-09-09 02 11 07" src="https://github.com/user-attachments/assets/50eed004-57d1-4cc2-a8e8-e4c3d7577540">
+

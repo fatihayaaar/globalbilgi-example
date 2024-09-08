@@ -1,9 +1,5 @@
 # Global Bilgi Example
 
-
-
-![Adsız-2024-08-25-1346](https://github.com/user-attachments/assets/e83559b3-841a-43a8-945f-c02535335b08)
-
 ## Introduction
 
 
@@ -23,6 +19,8 @@ Navigate to `http://localhost:4200/` to access the web UI.
 ## Projects Pages
 
 ### Login Page
+
+![Uploading Ekran Resmi 2024-09-08 17.50.12.png…]()
 
 ### Add Performance Page
 

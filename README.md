@@ -1,10 +1,6 @@
 # Global Bilgi Example
 
-## Introduction
-
-
-
-## Installation
+This project is a performance tracking system for employees, developed using Java and the Spring Boot framework. Security is implemented with Spring Security and JWT (JSON Web Token). The system performs role-based authorization, ensuring that only authorized users can access and view all performance records. Employee performance data is securely recorded, providing managers with the ability to assess and evaluate performance effectively.
 
 #### With Docker (Linux, MacOS)
 
